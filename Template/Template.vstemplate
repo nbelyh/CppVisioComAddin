@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="ProjectGroup" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>C++ Visio COM Addin</Name>
+    <DefaultName>CppVisioComAddin</DefaultName>
+    <Description>C++ Visio COM Addin Project template</Description>
+    <ProjectType>VC</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <Icon>Icon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="Addin">
+        Addin\AddIn.vstemplate
+      </ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="Setup">
+        Setup\Setup.vstemplate
+      </ProjectTemplateLink>
+    </ProjectCollection>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VisioComCppAddinWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b86c88e5ddcbf9d</Assembly>
+    <FullClassName>VisioComCppAddinWizard.RootWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

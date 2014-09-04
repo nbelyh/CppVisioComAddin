@@ -1,0 +1,44 @@
+// AddIn.idl : IDL source for AddIn
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AddIn.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid($LIBID$),
+	version(1.0),
+	helpstring("$VCXPROJECTNAME$ 1.0 Type Library")
+]
+library AddinLib
+{
+	importlib("stdole2.tlb");
+
+	[
+		object,
+		uuid($ITFID$),
+		dual,
+		pointer_default(unique)
+	]
+	interface ICallbackInterface : IDispatch
+	{
+		[id(1)] 
+		HRESULT OnRibbonButtonClicked([in] IDispatch * pControl);
+
+		[id(2)]
+		HRESULT OnRibbonGetLabel([in] IDispatch * pControl, [out, retval] BSTR* pLabel);
+
+		[id(3)]
+		HRESULT OnRibbonGetImage([in] IDispatch * pControl, [out, retval]IPictureDisp ** ppdispImage);
+	};
+	[
+		uuid($CLSID$),
+		helpstring("VisioConnect Class")
+	]
+	coclass VisioConnect
+	{
+		[default] interface ICallbackInterface;
+	};
+};

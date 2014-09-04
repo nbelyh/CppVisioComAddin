@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Visio COM C++ Addin Project</Name>
+    <Description>Creates Visio COM C++ Addin Project</Description>
+    <ProjectType>VC</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1001</SortOrder>
+    <TemplateID>695FFDFA-13CF-4CF6-85A2-E6199F0DF55A</TemplateID>
+    <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>AddIn</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="AddIn.vcxproj" File="AddIn.vcxproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true">AddIn.vcxproj.filters</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddIn.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">AddinCommands.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddinCommands.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddIn.def</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddIn.idl</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddIn.rc</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AddIn.rgs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">VisioConnect.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true">VisioConnect.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true">resource.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true">stdafx.h</ProjectItem>
+      <ProjectItem ReplaceParameters="true">stdafx.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="false">res\Icon1.ico</ProjectItem>
+      <ProjectItem ReplaceParameters="false">res\Icon2.ico</ProjectItem>
+      <ProjectItem ReplaceParameters="true">res\Ribbon.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Import\IDTExtensibility2.tlh</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Import\MSO.tlh</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Import\MSO.tli</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Import\VISLIB.tlh</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Import\VISLIB.tli</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VisioComCppAddinWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b86c88e5ddcbf9d</Assembly>
+    <FullClassName>VisioComCppAddinWizard.ChildWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

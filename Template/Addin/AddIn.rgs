@@ -1,0 +1,26 @@
+HKCR
+{
+	$PROGID$.1 = s 'Connect Class'
+	{
+		CLSID = s '{$CLSID$}'
+	}
+	$PROGID$ = s 'Connect Class'
+	{
+		CLSID = s '{$CLSID$}'
+		CurVer = s '$PROGID$.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove '{$CLSID$}' = s 'Connect Class'
+		{
+			ProgID = s '$PROGID$.1'
+			VersionIndependentProgID = s '$PROGID$'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{$LIBID$}'
+		}
+	}
+}

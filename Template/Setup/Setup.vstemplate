@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>WiX Setup Project for C++ Visio COM Addin</Name>
+    <Description>Creates an WiX installer project to install .NET Visio COM Addin</Description>
+    <ProjectType>WiX</ProjectType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>D4C8C7EA-B125-4293-A4E8-43D22CB29A4D</TemplateID>
+    <CreateNewFolder>false</CreateNewFolder>
+    <DefaultName>Setup</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Setup.wixproj" File="Setup.wixproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" >Setup.wxs</ProjectItem>
+      <ProjectItem ReplaceParameters="false">Icon.ico</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>VisioComCppAddinWizard, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b86c88e5ddcbf9d</Assembly>
+    <FullClassName>VisioComCppAddinWizard.ChildWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

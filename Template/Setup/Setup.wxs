@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?define Binaries="$(var.SolutionDir)$(var.Platform)\$(var.Configuration)" ?>
+  <?define Version="1.0.0.0"?>
+  
+  <?if $(var.Platform)=x64 ?>
+  <?define Win64YesNo="yes" ?>
+  <?define UpgradeCode = "{$guid6$}" ?>
+  <?define cf="ProgramFiles64Folder" ?>
+  <?else ?>
+  <?define Win64YesNo="no" ?>
+  <?define UpgradeCode = "{$guid7$}" ?>
+  <?define cf="ProgramFilesFolder" ?>
+  <?endif ?>
+  
+  <Product Id="*" 
+           Name="$VCXPROJECTNAME$ ($(var.Platform))" 
+           Language="1033" 
+           Codepage="1252"
+           Version="$(var.Version)" 
+           Manufacturer="Unmanaged Visio" 
+           UpgradeCode="$(var.UpgradeCode)">
+
+    <Package InstallerVersion="200" 
+             Compressed="yes" 
+             InstallPrivileges="elevated" 
+             InstallScope="perMachine" 
+             Platform="$(var.Platform)"
+             />
+
+    <Property Id="MSIFASTINSTALL">1</Property>
+    
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <MajorUpgrade
+      DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.cf)">
+        <Directory Id="COMPANYDIR" Name="UnmanagedVisio" >
+          <Directory Id="PRODUCTDIR" Name="JumpToShape">
+
+            <Component Id="ProductComponent" Win64="$(var.Win64YesNo)">
+              <File KeyPath="yes" Source="$(var.Binaries)\Addin.dll" >
+                <TypeLib Id="{$LIBID$}" Description="Jup To Shape Addin 1.0 Type Library" HelpDirectory="TARGETDIR" Language="0" MajorVersion="1" MinorVersion="0">
+                  <Class Id="{$CLSID$}" Context="InprocServer32" Description="Connect Class" ThreadingModel="apartment" Programmable="yes">
+                    <ProgId Id="$PROGID$.1" Description="Connect Class">
+                      <ProgId Id="$PROGID$" Description="Connect Class" />
+                    </ProgId>
+                  </Class>
+                  <Interface Id="{AF31E0EB-48CF-4A3B-893F-E999A0E29944}" Name="ICallbackInterface" ProxyStubClassId32="{00020424-0000-0000-C000-000000000046}" />
+                </TypeLib>
+              </File>
+            </Component>
+
+            <Component Id="VisioRegistration" Win64="$(var.Win64YesNo)" >
+              <RegistryKey Root="HKMU" Key="Software\Microsoft\Visio\Addins\$VCXPROJECTNAME$.VisioConnect">
+                <RegistryValue Name="CommandLineSafe" Type="integer" Value="0" />
+                <RegistryValue Name="FriendlyName" Type="string" Value="$VCXPROJECTNAME$" KeyPath="yes" />
+                <RegistryValue Name="LoadBehavior" Type="integer" Value="3" />
+              </RegistryKey>
+            </Component>
+
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+    
+    <Feature Id="ProductFeature" Title="$VCXPROJECTNAME$" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="VisioRegistration" />
+    </Feature>
+
+    <UIRef Id="WixUI_FeatureTree" />
+
+    <Icon Id="Icon.ico" SourceFile="Icon.ico" />
+
+    <Property Id="ARPNOMODIFY" Value="1" />
+    <Property Id="ARPPRODUCTICON" Value="Icon.ico" />
+    
+  </Product>
+</Wix>
