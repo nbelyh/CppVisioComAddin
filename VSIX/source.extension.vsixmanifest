@@ -3,8 +3,10 @@
   <Identifier Id="VisioComCppAddin.UnmanagedVisio">
     <Name>C++ Visio COM Addin Project</Name>
     <Author>Nikolay Belykh</Author>
-    <Version>1.0.0</Version>
-    <Description xml:space="preserve">Creates a Microsoft Visio COM Addin in C++ compatible with most Vision versions, and WiX installer for the Addin.</Description>
+    <Version>1.0.1</Version>
+    <Description xml:space="preserve">
+      Creates a Microsoft Visio COM Addin in C++ compatible with Visio 2003-2013, and WiX installer project for the Addin.
+    </Description>
     <Locale>1033</Locale>
     <License>license.txt</License>
     <SupportedProducts>

@@ -57,10 +57,13 @@
     <Content Include="Addin\Import\MSO.tli" />
     <Content Include="Addin\Import\VISLIB.tlh" />
     <Content Include="Addin\Import\VISLIB.tli" />
+    <Content Include="Addin\projectfile.ico" />
     <Content Include="Addin\res\icon1.ico" />
     <Content Include="Addin\res\icon2.ico" />
     <Content Include="Addin\res\Ribbon.xml" />
+    <Content Include="Icon.ico" />
     <Content Include="Setup\Icon.ico" />
+    <Content Include="Setup\projectfile.ico" />
     <Content Include="Setup\Setup.wixproj">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

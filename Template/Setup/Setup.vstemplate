@@ -10,6 +10,7 @@
     <CreateNewFolder>false</CreateNewFolder>
     <DefaultName>Setup</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <Icon>projectfile.ico</Icon>
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="Setup.wixproj" File="Setup.wixproj" ReplaceParameters="true">

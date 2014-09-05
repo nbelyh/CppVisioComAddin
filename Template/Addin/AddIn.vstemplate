@@ -10,6 +10,7 @@
     <CreateNewFolder>false</CreateNewFolder>
     <DefaultName>AddIn</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <Icon>projectfile.ico</Icon>
   </TemplateData>
   <TemplateContent>
     <Project TargetFileName="AddIn.vcxproj" File="AddIn.vcxproj" ReplaceParameters="true">
